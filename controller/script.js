@@ -11,7 +11,7 @@ $(document).ready(function()
         // hacer que las funciones de abajo sean asíncronas y esperen al Ajax
         // de pronto puedo hacer que el ajax sea promesa
         request.done(function(result){
-            console.log(result);
+            
         });
         request.fail(function(request, statusText)
         {
