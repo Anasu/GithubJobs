@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Lato', sans-serif;
+  color: darkslategray;
+}
+.consulta, .respuesta {
+  display: flex;
+  justify-content: center;
+  margin: 5vh 2vh;
+}
+
+.consulta__contenido{
+  width: 100%;
+}
+.consulta__titulo {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.consulta__instrucciones {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.consulta__formulario {
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.consulta__formulario input{
+  padding: 1% 2.5%;
+  font-size: 1rem;
+  margin: 0 5px;
+  font-family: 'Lato', sans-serif;
+  color: darkslategray;
+}
+
+.invisible {
+  display: none;
+}
+
+.respuesta__contenido {
+  align-items: center;
+}
+.respuesta__titulo {
+  text-transform: capitalize;
+}
+.respuesta__descripcion {
+  display: flex;
+  align-items: center;
+}
+
+.respuesta__descripcion_img {
+  max-width: 150px;
+  height: auto;
+  display: inline-block;
+}
+.respuesta__descripcion_img img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.respuesta__descripcion_texto{
+  margin-left: 2rem;
+}
+.respuesta__detalles {
+  display: flex;
+  align-items: baseline;
+}
+.respuesta__locacion {
+  margin-left: 0.5rem;
+}

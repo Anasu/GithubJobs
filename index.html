@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Github Jobs</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"  
+          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  
+          crossorigin="anonymous"></script>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  
+
+</head>
+<body>
+  <section class="consulta">
+    <div class="consulta__contenido">
+      <h1 class="consulta__titulo">Github Jobs</h1>
+      <p class="consulta__instrucciones">Ingresa un lenguaje de programación y/o 
+        utiliza los filtros para consultar los trabajos disponibles.</p>
+      <form id="jobsForm" class="consulta__formulario">
+        <input type="text" id="jobsInput" class="formulario__info">
+        <input type="submit" id="jobsSubmit" class="formulario__boton" value="Consultar">
+      </form>
+    </div>
+  </section>
+  <section id="respuesta" class="respuesta">
+    <div class="respuesta__contenido">
+      <div class="respuesta__descripcion" id="jobsData">
+        <div class="respuesta__descripcion_img">
+          <img src="https://jobs.github.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbCtBIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--fae31e23baf01dea30a08ce322586f67ca72b76c/Logo.png" alt="Company Logo">
+        </div>
+        <div class="respuesta__descripcion_texto">
+          <h2 class="respuesta__titulo">Senior Back-End Web Developer</h2>
+          <div class="respuesta__detalles">
+            <h3 class="respuesta__tipo">Full Time</h3>
+            <h4 class="respuesta__locacion">Rockland, MA</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="respuesta__grafico" id="grafico">
+      <div id="chartContainer"></div>
+    </div>
+    <div class="respuesta__habilidades_centrado">
+      <div class="respuesta__habilidades" id="habilidades"></div> 
+    </div>
+  </section>
+
+  <script src="script/script.js"></script>
+</body>
+</html>
