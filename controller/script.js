@@ -2,28 +2,6 @@ $(document).ready(function()
 {
     let page = 0;
     let lastRqst;
-    $('#jobsForm').submit(function() 
-    {
-        event.preventDefault();
-        let consulta = $('#jobsInput').val();
-        page = 0;
-        lastRqst = `https://corsanywhere.herokuapp.com/https://jobs.github.com/positions.json?${consulta}`;
-        let request = $.ajax({
-            url: `${lastRqst}&page=${page}`,
-            method: "GET"
-        });
-        // hacer que las funciones de abajo sean asíncronas y esperen al Ajax
-        // de pronto puedo hacer que el ajax sea promesa
-        request.done(function(res){
-            console.log(res);
-            console.log(page);
-            imprimirResultado(res);
-        });
-        request.fail(function(request, statusText)
-        {
-            console.log(statusText);
-        });
-    }); 
     
     const imprimirResultado = function (result) {
         $('#respuesta__contenido').html('');
@@ -76,7 +54,35 @@ $(document).ready(function()
             page = lastPage;
         });
     };
+    const pagActual = function() {
+        let aPage = page + 1;
+        console.log(aPage);
+        $('#actual-page').html(`Estás en la página ${aPage}`);
+    };
 
-    $('#previous').click(pagAnte);
+    $('#jobsForm').submit(function() 
+    {
+        event.preventDefault();
+        let consulta = $('#jobsInput').val();
+        page = 0;
+        lastRqst = `https://corsanywhere.herokuapp.com/https://jobs.github.com/positions.json?${consulta}`;
+        let request = $.ajax({
+            url: `${lastRqst}&page=${page}`,
+            method: "GET"
+        });
+        // hacer que las funciones de abajo sean asíncronas y esperen al Ajax
+        // de pronto puedo hacer que el ajax sea promesa
+        request.done(function(res){
+            console.log(res);
+            console.log(page);
+            imprimirResultado(res);
+        });
+        request.fail(function(request, statusText)
+        {
+            console.log(statusText);
+        });
+    });     
+    $('#previous').click(pagAnte); //se lo paso como variable para que no se ejecute al abrir la pag
+    pagActual();
     $('#next').click(pagSgte);
 });

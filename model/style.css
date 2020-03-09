@@ -85,3 +85,7 @@ body {
 .respuesta__locacion {
   margin-left: 0.5rem;
 }
+.paginacion {
+  display: flex;
+  justify-content: space-evenly;
+}
