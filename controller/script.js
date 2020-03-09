@@ -46,10 +46,27 @@ $(document).ready(function()
             );
         });
     };
-    const pagSgte = function(lastPage, rqstUri) {
+    const pagSgte = function() {
+        let lastPage = page;
         lastPage++;
         $.ajax({
-            url: `${rqstUri}&page=${lastPage}`,
+            url: `${lastRqst}&page=${lastPage}`,
+            method: "GET"
+        })
+        .done(function(res){
+            console.log(res);
+            console.log(lastPage);
+            if(res.length == 0) return;
+            imprimirResultado(res);
+            page = lastPage;
+        });
+    };
+    const pagAnte = function() {
+        let lastPage = page;
+        if(page == 0) return;
+        lastPage--;
+        $.ajax({
+            url: `${lastRqst}&page=${lastPage}`,
             method: "GET"
         })
         .done(function(res){
@@ -59,27 +76,7 @@ $(document).ready(function()
             page = lastPage;
         });
     };
-    const pagAnte = function(lastPage, rqstUri) {
-        if(page == 0) return;
-        lastPage--;
-        $.ajax({
-            url: `${rqstUri}&page=${lastPage}`,
-            method: "GET"
-        })
-        .done(function(res){
-            console.log(res);
-            console.log(lastPage);
-            if(res.length != 0) {
-                imprimirResultado(res);
-                page = lastPage;
-            };
-        });
-    };
 
-    $('#previous').click(function() {
-        pagAnte(page, lastRqst);
-    });
-    $('#next').click(function() {
-        pagSgte(page, lastRqst)
-    });
+    $('#previous').click(pagAnte);
+    $('#next').click(pagSgte);
 });
