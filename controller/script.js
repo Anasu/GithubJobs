@@ -67,8 +67,11 @@ $(document).ready(function()
     {
         event.preventDefault();
         let consulta = $('#jobsInput').val();
+        let fullTime = $('#fullTime').is(":checked");
         page = 0;
-        lastRqst = `https://corsanywhere.herokuapp.com/https://jobs.github.com/positions.json?${consulta}`;
+        lastRqst = `https://corsanywhere.herokuapp.com/` +
+            `https://jobs.github.com/positions.json?search=${consulta}&full_time=${fullTime}`;
+        $('#respuesta__contenido').html(`<img src="img/loading.gif" alt="loading">`);
         const request = async function() {
             let res = await fetch(lastRqst);
             let toJson = await res.json();
@@ -79,6 +82,6 @@ $(document).ready(function()
         request();
         pagActual();
     });     
-    $('#previous').click(pagAnte); //se lo paso como variable para que no se ejecute al abrir la pag
+    $('#previous').click(pagAnte);
     $('#next').click(pagSgte);
 });

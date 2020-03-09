@@ -20,7 +20,10 @@
       <p class="consulta__instrucciones">Ingresa un lenguaje de programación y/o 
         utiliza los filtros para consultar los trabajos disponibles.</p>
       <form id="jobsForm" class="consulta__formulario">
-        <input type="text" id="jobsInput" class="formulario__info">
+        <div class="formulario__inputs">
+          <input type="text" id="jobsInput" name="jobsInput" class="formulario__info"></br>
+          <input type="checkbox" id="fullTime"><label for="jobsInput">Tiempo completo</label>
+        </div>
         <input type="submit" id="jobsSubmit" class="formulario__boton" value="Consultar">
       </form>
     </div>
