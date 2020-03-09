@@ -28,32 +28,31 @@ $(document).ready(function()
     const pagSgte = function() {
         let lastPage = page;
         lastPage++;
-        $.ajax({
-            url: `${lastRqst}&page=${lastPage}`,
-            method: "GET"
-        })
-        .done(function(res){
-            console.log(res);
-            console.log(lastPage);
-            if(res.length == 0) return;
-            imprimirResultado(res);
+        const pagRqst = async function() {
+            let res = await fetch(`${lastRqst}&page=${lastPage}`);
+            let toJson = await res.json();
+
+            if(toJson.length == 0) return;
+            imprimirResultado(toJson);
             page = lastPage;
-        });
+            pagActual();
+        };
+        pagRqst();
     };
     const pagAnte = function() {
         let lastPage = page;
         if(page == 0) return;
         lastPage--;
-        $.ajax({
-            url: `${lastRqst}&page=${lastPage}`,
-            method: "GET"
-        })
-        .done(function(res){
-            console.log(res);
-            console.log(lastPage);
-            imprimirResultado(res);
+        const pagRqst = async function() {
+            let res = await fetch(`${lastRqst}&page=${lastPage}`);
+            let toJson = await res.json();
+
+            if(toJson.length == 0) return;
+            imprimirResultado(toJson);
             page = lastPage;
-        });
+            pagActual();
+        };
+        pagRqst();
     };
     const pagActual = function() {
         let aPage = page + 1;
@@ -77,9 +76,9 @@ $(document).ready(function()
             console.log(toJson);
             imprimirResultado(toJson);
         };
-        request().then();
+        request();
+        pagActual();
     });     
     $('#previous').click(pagAnte); //se lo paso como variable para que no se ejecute al abrir la pag
-    pagActual();
     $('#next').click(pagSgte);
 });
