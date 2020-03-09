@@ -23,6 +23,7 @@ $(document).ready(function()
                 $('#respuesta__contenido').html() + estructura
             );
         });
+        showPagin();
     };
     const pagSgte = function() {
         let lastPage = page;
@@ -56,8 +57,11 @@ $(document).ready(function()
     };
     const pagActual = function() {
         let aPage = page + 1;
-        console.log(aPage);
+        //console.log(aPage);
         $('#actual-page').html(`Estás en la página ${aPage}`);
+    };
+    const showPagin = function() {
+        $('#pagination').removeClass('hidden');
     };
 
     $('#jobsForm').submit(function() 
@@ -66,21 +70,14 @@ $(document).ready(function()
         let consulta = $('#jobsInput').val();
         page = 0;
         lastRqst = `https://corsanywhere.herokuapp.com/https://jobs.github.com/positions.json?${consulta}`;
-        let request = $.ajax({
-            url: `${lastRqst}&page=${page}`,
-            method: "GET"
-        });
-        // hacer que las funciones de abajo sean asíncronas y esperen al Ajax
-        // de pronto puedo hacer que el ajax sea promesa
-        request.done(function(res){
-            console.log(res);
-            console.log(page);
-            imprimirResultado(res);
-        });
-        request.fail(function(request, statusText)
-        {
-            console.log(statusText);
-        });
+        const request = async function() {
+            let res = await fetch(lastRqst);
+            let toJson = await res.json();
+
+            console.log(toJson);
+            imprimirResultado(toJson);
+        };
+        request().then();
     });     
     $('#previous').click(pagAnte); //se lo paso como variable para que no se ejecute al abrir la pag
     pagActual();
