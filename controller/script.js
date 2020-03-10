@@ -72,11 +72,17 @@ $(document).ready(function()
         // Evaluación
         switch ($('#formType').val()) {
             case 'description':
-                $('#descriptionInput').removeClass('hidden');
+                $('#inputs input').removeClass('hidden')
+                    .attr('placeholder', 'Descripción')
+                    .attr('id','descriptionInput');
+                $('#descriptionInput').val('');
                 typeRqst = 'description';
                 break;
             case 'location':
-                $('#locationInput').removeClass('hidden');
+                $('#inputs input').removeClass('hidden')
+                    .attr('placeholder', 'Ciudad o país')
+                    .attr('id','locationInput');
+                $('#locationInput').val('');
                 typeRqst = 'location';
                 break;
             default:

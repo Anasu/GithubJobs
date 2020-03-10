@@ -30,6 +30,10 @@ body {
   margin-bottom: 1.5rem;
   text-align: center;
 }
+.consulta__select {
+  display: flex;
+  justify-content: center;
+}
 .consulta__formulario {
   display: -webkit-flex;
   display: flex;
