@@ -64,12 +64,6 @@ $(document).ready(function()
         $('#pagination').removeClass('hidden');
     };
     const searchType = function() {
-        // Reset
-        $('#descriptionInput').removeClass('hidden');
-        $('#locationInput').removeClass('hidden');
-        $('#descriptionInput').addClass('hidden');
-        $('#locationInput').addClass('hidden');
-        // Evaluación
         switch ($('#formType').val()) {
             case 'description':
                 $('#inputs input').removeClass('hidden')
