@@ -2,11 +2,13 @@ $(document).ready(function()
 {
     let page = 0;
     let lastRqst;
-    
+    let lat;
+    let long;
+    let place;
     const imprimirResultado = function (result) {
         $('#respuesta__contenido').html('');
         result.forEach(function(data) {
-            let estructura = `
+            let structure = `
                     <a class="respuesta__descripcion" href="${data.url}" target="_blank">
                         <div class="respuesta__descripcion_img">
                             <img src=${data.company_logo} alt="Company Logo">
@@ -20,7 +22,7 @@ $(document).ready(function()
                         </div>
                     </a>`;
             $('#respuesta__contenido').html(
-                $('#respuesta__contenido').html() + estructura
+                $('#respuesta__contenido').html() + structure
             );
         });
         showPagin();
@@ -66,20 +68,20 @@ $(document).ready(function()
     $('#jobsForm').submit(function() 
     {
         event.preventDefault();
-        let consulta = $('#jobsInput').val();
+        let request = $('#jobsInput').val();
         let fullTime = $('#fullTime').is(":checked");
         page = 0;
         lastRqst = `https://corsanywhere.herokuapp.com/` +
-            `https://jobs.github.com/positions.json?search=${consulta}&full_time=${fullTime}`;
+            `https://jobs.github.com/positions.json?description=${request}&full_time=${fullTime}`;
         $('#respuesta__contenido').html(`<img src="img/loading.gif" alt="loading">`);
-        const request = async function() {
+        const apiRqst = async function() {
             let res = await fetch(lastRqst);
             let toJson = await res.json();
 
             console.log(toJson);
             imprimirResultado(toJson);
         };
-        request();
+        apiRqst();
         pagActual();
     });     
     $('#previous').click(pagAnte);
