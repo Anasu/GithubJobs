@@ -14,7 +14,7 @@ body {
   padding: 5vh 2vh;
 }
 .consulta {
-  border-bottom: 2px solid gray;
+  border-bottom: 2px solid #194A86;
   background-color: #ffffff;
 }
 .consulta__contenido{
@@ -33,6 +33,17 @@ body {
 .consulta__select {
   display: flex;
   justify-content: center;
+  margin: 10px 0;
+}
+.consulta__select select {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 5px;
+  border-color: #5da5d8;
+  background-color: #f0faff;
 }
 .consulta__formulario {
   display: -webkit-flex;
@@ -43,15 +54,28 @@ body {
 .consulta__formulario input{
   padding: 1% 2.5%;
   font-size: 1rem;
-  margin: 0 5px;
+  margin: 5px 0;
   font-family: 'Lato', sans-serif;
   color: darkslategray;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #5da5d8;
 }
-.formulario__boton {
-  min-width: 4.3rem;
+.consulta__formulario input.campo-texto {
+  padding: 3%;
+}
+.consulta__formulario #checkbox input {
+  width: auto;
+  margin-right: 0.75rem;
+}
+.consulta__formulario input.formulario__boton {
+  background-color: #194A86;
+  color: #fff; 
+  min-height: 50px;
 }
 .formulario__inputs {
-  margin-right: 1rem;
+  width: 100%;
+  max-width: 300px;
 }
 .respuesta {
   background-color: #f1f1f1;
@@ -78,7 +102,7 @@ body {
 .respuesta__descripcion:hover {
   text-decoration: none;
   color: darkslategray;
-  box-shadow: 5px 5px 3px #c2c2c2;
+  box-shadow: 8px 8px 5px #c2c2c2;
 }
 .respuesta__descripcion_img {
   max-width: 65px;

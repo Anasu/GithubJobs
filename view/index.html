@@ -17,8 +17,8 @@
   <section class="consulta">
     <div class="consulta__contenido">
       <h1 class="consulta__titulo">Github Jobs</h1>
-      <p class="consulta__instrucciones">Elije la forma de consultar. A continuación
-        escribe las palabras claves que desees
+      <p class="consulta__instrucciones">Elije la forma de consultar. 
+        A continuación escribe las palabras claves que desees.
       </p>
       <div class="consulta__select">
         <select id="formType">
@@ -29,10 +29,12 @@
       </div>
       <form id="jobsForm" class="consulta__formulario">
         <div class="formulario__inputs" id="inputs">
-          <input type="text" class="formulario__info hidden"></br>
-          <input type="checkbox" id="fullTime"><label for="jobsInput">Tiempo completo</label>
+          <input type="text" class="formulario__info campo-texto hidden">
+          <div class="hidden" id="checkbox">
+            <input type="checkbox" id="fullTime"><label for="jobsInput">Tiempo completo</label>
+          </div>
+          <input type="submit" id="jobsSubmit" class="formulario__boton" value="Consultar">
         </div>
-        <input type="submit" id="jobsSubmit" class="formulario__boton" value="Consultar">
       </form>
     </div>
   </section>
