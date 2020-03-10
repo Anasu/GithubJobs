@@ -64,22 +64,26 @@ $(document).ready(function()
         $('#pagination').removeClass('hidden');
     };
     const searchType = function() {
+        $('#checkbox').addClass('hidden');
         switch ($('#formType').val()) {
             case 'description':
-                $('#inputs input').removeClass('hidden')
+                $('#inputs input:first-child').removeClass('hidden')
                     .attr('placeholder', 'Descripción')
                     .attr('id','descriptionInput');
+                $('#checkbox').removeClass('hidden');
                 $('#descriptionInput').val('');
                 typeRqst = 'description';
                 break;
             case 'location':
-                $('#inputs input').removeClass('hidden')
+                $('#inputs input:first-child').removeClass('hidden')
                     .attr('placeholder', 'Ciudad o país')
                     .attr('id','locationInput');
+                $('#checkbox').removeClass('hidden');
                 $('#locationInput').val('');
                 typeRqst = 'location';
                 break;
             default:
+                $('#inputs input:first-child').addClass('hidden');
                 console.log('Selecciona algo po D:<');
         }
     }
