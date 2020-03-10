@@ -2,9 +2,8 @@ $(document).ready(function()
 {
     let page = 0;
     let lastRqst;
-    let lat;
-    let long;
-    let place;
+    let typeRqst;
+
     const imprimirResultado = function (result) {
         $('#respuesta__contenido').html('');
         result.forEach(function(data) {
@@ -64,15 +63,36 @@ $(document).ready(function()
     const showPagin = function() {
         $('#pagination').removeClass('hidden');
     };
+    const searchType = function() {
+        // Reset
+        $('#descriptionInput').removeClass('hidden');
+        $('#locationInput').removeClass('hidden');
+        $('#descriptionInput').addClass('hidden');
+        $('#locationInput').addClass('hidden');
+        // Evaluación
+        switch ($('#formType').val()) {
+            case 'description':
+                $('#descriptionInput').removeClass('hidden');
+                typeRqst = 'description';
+                break;
+            case 'location':
+                $('#locationInput').removeClass('hidden');
+                typeRqst = 'location';
+                break;
+            default:
+                console.log('Selecciona algo po D:<');
+        }
+    }
 
+    $('#formType').on('click',searchType);
     $('#jobsForm').submit(function() 
     {
         event.preventDefault();
-        let request = $('#jobsInput').val();
+        let request = $(`#${typeRqst}Input`).val();
         let fullTime = $('#fullTime').is(":checked");
         page = 0;
         lastRqst = `https://corsanywhere.herokuapp.com/` +
-            `https://jobs.github.com/positions.json?description=${request}&full_time=${fullTime}`;
+            `https://jobs.github.com/positions.json?${typeRqst}=${request}&full_time=${fullTime}`;
         $('#respuesta__contenido').html(`<img src="img/loading.gif" alt="loading">`);
         const apiRqst = async function() {
             let res = await fetch(lastRqst);

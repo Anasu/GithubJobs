@@ -17,11 +17,18 @@
   <section class="consulta">
     <div class="consulta__contenido">
       <h1 class="consulta__titulo">Github Jobs</h1>
-      <p class="consulta__instrucciones">Ingresa un lenguaje de programación y/o 
-        utiliza los filtros para consultar los trabajos disponibles.</p>
+      <p class="consulta__instrucciones">Elije la forma de consultar.</p>
       <form id="jobsForm" class="consulta__formulario">
         <div class="formulario__inputs">
-          <input type="text" id="jobsInput" name="jobsInput" class="formulario__info"></br>
+          <select id="formType">
+            <option value="0">Elije una opción</option>
+            <option value="description">Por descripción</option>
+            <option value="location">Por lugar</option>
+          </select></br>
+          <input type="text" id="descriptionInput" name="jobsInput" 
+            placeholder="Descripción" class="formulario__info hidden"></br>
+          <input type="text" id="locationInput" name="locationInput" 
+            placeholder="Ciudad o País" class="formulario__info hidden"></br>
           <input type="checkbox" id="fullTime"><label for="jobsInput">Tiempo completo</label>
         </div>
         <input type="submit" id="jobsSubmit" class="formulario__boton" value="Consultar">
@@ -37,6 +44,7 @@
       </div>
       <div class="respuesta__contenido" id="respuesta__contenido">
       </div>
+      <!-- poner boton volver arriba -->
     </div>
   </section>
 
