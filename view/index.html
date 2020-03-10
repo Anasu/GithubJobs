@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Github Jobs</title>
+  <link rel="stylesheet" href="../model/style.css">
+  <!-- Tipografía -->
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"  
+          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  
+          crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <section class="consulta">
+    <div class="consulta__contenido">
+      <h1 class="consulta__titulo">Github Jobs</h1>
+      <p class="consulta__instrucciones">Elije la forma de consultar. 
+        A continuación escribe las palabras claves que desees.
+      </p>
+      <div class="consulta__select">
+        <select id="formType">
+          <option value="0">Elije una opción</option>
+          <option value="description">Por descripción</option>
+          <option value="location">Por lugar</option>
+        </select>
+      </div>
+      <form id="jobsForm" class="consulta__formulario">
+        <div class="formulario__inputs" id="inputs">
+          <input type="text" class="formulario__info campo-texto hidden">
+          <div class="hidden" id="checkbox">
+            <input type="checkbox" id="fullTime"><label for="jobsInput">Tiempo completo</label>
+          </div>
+          <input type="submit" id="jobsSubmit" class="formulario__boton" value="Consultar">
+        </div>
+      </form>
+    </div>
+  </section>
+  <section class="respuesta">
+    <div>
+      <div class="paginacion hidden" id="pagination">
+        <a href="#" id="previous">< Anterior</a>
+        <p id="actual-page"></p>
+        <a href="#" id="next">Siguiente ></a>
+      </div>
+      <div class="respuesta__contenido" id="respuesta__contenido">
+      </div>
+      <!-- poner boton volver arriba -->
+    </div>
+  </section>
+
+  <script src="../controller/script.js"></script>
+</body>
+</html>

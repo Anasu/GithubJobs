@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Lato', sans-serif;
+  color: darkslategray;
+  background-color: #f1f1f1;
+}
+.consulta, .respuesta {
+  display: flex;
+  justify-content: center;
+  padding: 5vh 2vh;
+}
+.consulta {
+  border-bottom: 2px solid #194A86;
+  background-color: #ffffff;
+}
+.consulta__contenido{
+  width: 100%;
+}
+.consulta__titulo {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.consulta__instrucciones {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.consulta__select {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+.consulta__select select {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 5px;
+  border-color: #5da5d8;
+  background-color: #f0faff;
+}
+.consulta__formulario {
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.consulta__formulario input{
+  padding: 1% 2.5%;
+  font-size: 1rem;
+  margin: 5px 0;
+  font-family: 'Lato', sans-serif;
+  color: darkslategray;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #5da5d8;
+}
+.consulta__formulario input.campo-texto {
+  padding: 3%;
+}
+.consulta__formulario #checkbox input {
+  width: auto;
+  margin-right: 0.75rem;
+}
+.consulta__formulario input.formulario__boton {
+  background-color: #194A86;
+  color: #fff; 
+  min-height: 50px;
+}
+.formulario__inputs {
+  width: 100%;
+  max-width: 300px;
+}
+.respuesta {
+  background-color: #f1f1f1;
+}
+
+.respuesta__contenido {
+  align-items: center;
+}
+.respuesta__titulo {
+  text-transform: uppercase;
+  font-size: 1.25rem;
+}
+.respuesta__descripcion {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: darkslategray;
+  background-color: #ffffff;
+  margin: 3% 0;
+  padding: 2%;
+  max-width: 720px;
+  box-shadow: 5px 5px 3px #dadada;
+}
+.respuesta__descripcion:hover {
+  text-decoration: none;
+  color: darkslategray;
+  box-shadow: 8px 8px 5px #c2c2c2;
+}
+.respuesta__descripcion_img {
+  max-width: 65px;
+  max-height: 65px;
+  height: auto;
+  display: inline-block;
+}
+.respuesta__descripcion_img img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.respuesta__descripcion_texto{
+  margin-left: 2rem;
+}
+.respuesta__detalles {
+  display: flex;
+  align-items: baseline;
+}
+.respuesta__locacion {
+  margin-left: 0.5rem;
+}
+.paginacion {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 2%;
+  box-shadow: 5px 5px 3px #dadada;
+}
+.hidden {
+  display: none;
+}
